@@ -68,6 +68,7 @@ body {
 
 /* Menu Icon */
 #menu-icon {
+    position: relative;
     font-size: 3.6rem;
     color: var(--text-color-1);
     cursor: pointer;
@@ -94,7 +95,7 @@ span {
     display: flex;
     align-items: center;
     padding: 0 9%;
-    background: url('img/bg.home.png') no-repeat;
+    background: url('/Website/img/bg.home.png') no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -362,7 +363,7 @@ span {
     border-bottom: .2rem solid var(--second-bg-color);
     border-left: .2rem solid var(--span-color);
     border-right: .2rem solid var(--span-color);
-    animation: aboutSpinner 8s linear infinite;
+    animation: tentangSpinner 8s linear infinite;
 }
 
 .tentang-content {
@@ -759,7 +760,28 @@ span {
     color: var(--span-color);
 }
 
-/* Media Queries */
+/* Keyframe Animasi */
+@keyframes homeBgText {
+
+    0%,
+    10%,
+    100% {
+        background-position: -33rem 0;
+    }
+
+    65%,
+    85% {
+        background-position: 0 0;
+    }
+}
+
+@keyframes tentangSpinner {
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Responsive */
 @media (max-width: 1200px) {
     html {
         font-size: 55%;
@@ -781,6 +803,7 @@ span {
 
     .footer {
         padding: 2rem 4%;
+        text-align: center;
     }
 }
 
@@ -794,82 +817,113 @@ span {
     }
 
     .navbar {
-        posisition: absolute;
+        position: absolute;
         top: 100%;
-        left: 0;
+        left: -100%;
         width: 100%;
         padding: 1rem 4%;
+        background: var(--second-bg-color);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        transition: 0.25s ease;
+        transition-delay: 0.25s;
+    }
+
+    .navbar.active {
+        left: 0;
+        transition-delay: 0s;
+    }
+
+    .navbar .active-nav {
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
         background: var(--bg-color);
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+        z-index: -1;
+        transition: 0.25s ease;
+        transition-delay: 0s;
+    }
+
+    .navbar.active .active-nav {
+        left: 0;
+        transition-delay: 0.25s;
     }
 
     .navbar a {
         display: block;
         font-size: 2rem;
         margin: 3rem 0;
-        transform: transelate(-20rem);
-        transition: .25s ease;
+        transform: translateX(-20rem);
+        transition: 0.25s ease;
         transition-delay: 0s;
     }
 
-    .navbar .active a {
-      transform: transelateX(0);
-      transition-delay: .25s;
+    .navbar.active a {
+        transform: translateX(0);
+        transition: 0.25s;
     }
 
     .home-imgHover {
-      pointer-events: none;
-      background: var(--bg-color);
-      opacity: .6;
-  }
+        pointer-events: auto;
+        background: var(--bg-color);
+        opacity: 0.6;
+    }
 }
 
 @media (max-width: 520px) {
-  html {
-      font-size: 50%;
-  }
+    html {
+        font-size: 50%;
+    }
 
-  .home-content h1 {
-      display: flex;
-      flex-direction: column;
-  }
+    .home-content h1 {
+        display: flex;
+        flex-direction: column;
+    }
 
-  .home-sci {
-      width: 160px;
-  }
+    .home-sci {
+        width: 160px;
+    }
 
-  .home-sci a {
-      width: 38px;
-      height: 38px;
-  }
+    .home-sci a {
+        width: 38px;
+        height: 38px;
+    }
 }
 
 @media (max-width: 462px) {
-  .home-content h1 {
-      font-size: 5.2rem;
-  }
-
-  .education {
-      padding: 10rem 4% 5rem 5%;
-  }
-
-  .contack form .input-box .input-field {
-      width: 100%;
-  }
-}
-
-/* Keyframes */
-@keyframes homeBgText {
-    0%,10%,100% {
-        background-position: -33rem 0;
+    .home-content h1 {
+        font-size: 5.2rem;
     }
-    65%,85% {
-        background-position: 0 0;
+
+    .edukasi {
+        padding: 10rem 4% 5rem 5%;
+    }
+
+    .contact form .input-box .input-field {
+        width: 100%;
+    }
+
+    .footer {
+        flex-direction: column-reverse;
     }
 }
 
-@keyframes aboutSpinner {
-    100% {
-        transform: translate(-50%, -50%) rotate(360deg);
+@media (max-width: 371px) {
+    .home {
+        justify-content: center;
+    }
+
+    .home-content {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
     }
 }
