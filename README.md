@@ -1,4 +1,4 @@
-elamat datang di SnyoMann.github.io! Ini adalah situs pribadi yang berfungsi sebagai portofolio dan blog untuk berbagi pengetahuan, proyek, dan pengalaman.
+Selamat datang di SnyoMann.github.io! Ini adalah situs pribadi yang berfungsi sebagai portofolio dan blog untuk berbagi pengetahuan, proyek, dan pengalaman.
 
 Tentang Saya
 Halo! Saya SnyoMann, seorang pengembang perangkat lunak yang bersemangat tentang teknologi dan pemrograman. Di situs ini, saya berbagi proyek-proyek terbaru, tulisan-tulisan teknis, dan berbagai tutorial.
