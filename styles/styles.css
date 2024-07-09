@@ -201,33 +201,25 @@ span {
 }
 
 .btn-layanan {
-    display: inline-block;
-    padding: 1rem 2.8rem;
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 15rem;
+    height: 5rem;
     background: var(--text-color-1);
+    border: 0.2rem solid var(--text-color-1);
     border-radius: 0.9rem;
-    box-shadow: 0 0 1rem var();
-    font-size: 1.6rem;
-    color: var(--bg-color);
-    margin-top: 1.5rem;
-    letter-spacing: .1rem;
+    font-size: 1.7rem;
     font-weight: 600;
-    transition: .5s ease;
+    letter-spacing: 0.1rem;
+    color: var(--bg-color);
+    z-index: 1;
+    overflow: hidden;
+    transition: 0.5s;
 }
 
 .btn-layanan:hover {
-    background: var(--bg-color);
-    color: var(--text-color-1);
-}
-
-.btn-layanan:nth-child(2) {
-    color: var(--text-color-1);
-}
-
-.btn-layanan:nth-child(2)::after {
-    color: var(--bg-color);
-}
-
-.btn-layanan:nth-child(2)::before {
     color: var(--text-color-1);
 }
 
@@ -243,6 +235,24 @@ span {
     z-index: -1;
     transition: 0.4s;
 }
+
+.btn-layanan:hover::before {
+    width: 110%;
+}
+
+.btn-layanan:nth-child(2) {
+    background: transparent;
+    color: var(--text-color-1);
+}
+
+.btn-layanan:nth-child(2):hover {
+    color: var(--bg-color);
+}
+
+.btn-layanan:nth-child(2)::before {
+    background: var(--text-color-1);
+}
+
 
 .home-sci {
     position: absolute;
@@ -617,7 +627,7 @@ span {
 
 .services-box i {
     font-size: 7rem;
-    color: var(--main-color);
+    color: var(--span-color);
 }
 
 .services-box h3 {
