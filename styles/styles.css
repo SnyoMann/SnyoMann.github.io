@@ -58,12 +58,24 @@ body {
     color: var(--text-color-1);
     font-weight: 500;
     margin-left: 3.5rem;
+    position: relative;
     transition: 0.3s;
 }
 
-.navbar a:hover,
-.navbar a.active {
-    color: var(--span-color);
+.navbar a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* bisa disesuaikan */
+    width: 0%;
+    height: 2px;
+    background-color: var(--span-color); /* warna garis */
+    transition: 0.3s ease;
+}
+
+.navbar a:hover::after,
+.navbar a.active::after {
+    width: 100%;
 }
 
 /* Menu Icon */
@@ -141,7 +153,7 @@ span {
 
 .btn-box {
     position: relative;
-    display: center;
+    display: flex;
     justify-content: space-between;
     width: 34.6rem;
     height: 5rem;
@@ -152,7 +164,7 @@ span {
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    width: 16rem;
+    width: 15rem;
     height: 100%;
     background: var(--text-color-1);
     border: 0.2rem solid var(--text-color-1);
